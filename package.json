@@ -1,0 +1,15 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-plugin-module-resolver": "^2.7.1",
+    "next": "^4.1.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
