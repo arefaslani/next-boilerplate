@@ -1,84 +1,51 @@
-import Link from 'next/link'
-import Head from 'components/head'
-import Nav from 'components/nav'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import axios from 'axios'
+import withRedux from 'next-redux-wrapper'
+import withReduxSaga from 'next-redux-saga'
+import Head from 'next/head'
 
-export default () => (
-  <div>
-    <Head title="Home" />
-    <Nav />
+import store from 'store'
+import { fetchPosts } from 'store/posts/actions'
+import api from 'services/api'
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next!</h1>
-      <p className="description">To get started, edit <code>pages/index.js</code> and save to reload.</p>
+class Aref extends Component {
+  static getInitialProps({store}) {
+    store.dispatch(fetchPosts())
+  }
 
-      <div className="row">
-        <Link href="https://github.com/zeit/next.js#getting-started">
-          <a className="card">
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next on Github and in their examples</p>
-          </a>
-        </Link>
-        <Link href="https://open.segment.com/create-next-app">
-          <a className="card">
-            <h3>Examples &rarr;</h3>
-            <p>
-              Find other example boilerplates on the <code>create-next-app</code> site
-            </p>
-          </a>
-        </Link>
-        <Link href="https://github.com/segmentio/create-next-app">
-          <a className="card">
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it</p>
-          </a>
-        </Link>
+  render() {
+    const { posts, fetchPosts } = this.props
+    return (
+      <div>
+        <Head>
+          <title>Aref</title>
+        </Head>
+        <button onClick={() => { fetchPosts() }}>Click Me</button>
+        <h1>Posts</h1>
+        { posts.map(function(post) {
+          return (
+            <div key={post.id}>
+              <h2>{post.title}</h2>
+              <p>{post.body}</p>
+            </div>
+          )
+        }) }
       </div>
-    </div>
+    )
+  }
+}
 
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title, .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9B9B9B;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchPosts
+  }, dispatch)
+}
+
+export default withRedux(store, mapStateToProps, mapDispatchToProps)(withReduxSaga(Aref))
