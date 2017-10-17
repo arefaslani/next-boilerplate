@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import withRedux from 'next-redux-wrapper'
 
-export default class Aref extends Component {
+import store from 'store'
+
+class Aref extends Component {
   static async getInitialProps(props) {
     const res  = await axios.get('https://jsonplaceholder.typicode.com/posts')
     return { data: res.data }
@@ -24,3 +27,5 @@ export default class Aref extends Component {
     )
   }
 }
+
+export default withRedux(store)(Aref)
