@@ -1,3 +1,9 @@
-export default function (state, action) {
-  return state
+import { combineReducers } from 'redux'
+
+import postsReducer from './posts/reducer'
+
+const reducers = {
+  posts: postsReducer
 }
+
+export default combineReducers(reducers)
