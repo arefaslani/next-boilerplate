@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Next.js Boilerplate</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+
+  <style>
+    @font-face {
+      font-family: BYekan;
+      src: url('./assets/fonts/BYekan.ttf');
+    }
+
+    body {
+      text-align: right;
+      direction: rtl;
+      font-family: BYekan;
+    }
+
+    .main {
+      padding-top: 10px;
+    }
+
+    h2 {
+      padding: 20px 0 0 0;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      margin-bottom: 30px;
+      background-image: -webkit-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
+      background-image: -moz-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
+      background-image: -ms-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
+      background-image: -o-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
+    }
+  </style>
+</head>
+<body>
+  <div class="main container">
+    <div class="jumbotron text-center">
+      <h1 class="display-3">Next.js Boilerplate</h1>
+      <p class="lead">بنیانی مینیمال برای ساخت اپلیکیشن های یونیورسال React، نیرو گرفته از Next.js</p>
+    </div>
+
+    <div class="main-parts">
+      <h2 class="text-center">اجزای اصلی تشکیل دهنده</h2>
+      <hr>
+      <div class="divider"></div>
+      <div class="row">
+        <div class="col-md">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="./assets/images/next.png" alt="Next" height="300">
+            <div class="card-body">
+              <h4 class="card-title">Next.js</h4>
+              <p class="card-text">فوندانسیون این پکیج روی Next.js بنا شده است. Next چهارچوبی برای تولید اپلیکیشن های Universal جاوااسکریپت است.</p>
+              <a href="https://zeit.co/blog/next4" target="_blank" class="btn btn-primary">وبسایت Next.js</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="./assets/images/react.png" alt="React" height="300">
+            <div class="card-body">
+              <h4 class="card-title">React</h4>
+              <p class="card-text">این بسته به صورت پیش فرض با React کانفیگ شده. اما با Inferno یا Preact نیز سازگار است.</p>
+              <a href="https://reactjs.org/" target="_blank" class="btn btn-primary">وبسایت React</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="./assets/images/redux.png" alt="Redux" height="300">
+            <div class="card-body">
+              <h4 class="card-title">Redux</h4>
+              <p class="card-text">در این بسته از Redux جهت مدیریت state اپلیکیشن استفاده می شود.</p>
+              <a href="http://redux.js.org/" target="_blank" class="btn btn-primary">وبسایت Redux</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="side-parts">
+      <h2 class="text-center">سایر اجزا</h2>
+      <hr>
+      <ul>
+        <li><b>Redux Saga</b>: در این مجموعه جهت مدیریت side effect ها و عملیات های async از Redux Saga استفاده شده است.</li>
+        <li>
+          <b>Redux Logger</b>: تمامی اکشن ها به همراه تغییراتی که در state ایجاد کرده اند مانند آنچه در عکس زیر می بینید در کنسول مرورگر لاگ می شوند.
+          <br>
+          <img src="./assets/images/console.png" alt="">
+          <br>
+          Redux Logger فقط در محیط development فعال است.
+        </li>
+        <li>
+          <b>Redux Dev tools Extension</b>: نمایش state اپلیکیشن در افزونه redux dev tools
+          <br>
+          <img src="./assets/images/redux-dev-tools.png" alt="">
+          <br>
+          این افزونه فقط در محیط development فعال است.
+        </li>
+        <li><b>Axios</b>: برای ارسال درخواست های HTTP از Axios استفاده شده است.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
