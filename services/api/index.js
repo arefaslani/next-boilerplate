@@ -18,6 +18,10 @@ class API {
   fetchAllPosts() {
     return facade.get('/posts')
   }
+
+  fetchPost(id) {
+    return facade.get(`/posts/${id}`)
+  }
 }
 
 const apiInstance = new API()
