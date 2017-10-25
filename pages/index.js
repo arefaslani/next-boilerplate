@@ -7,6 +7,7 @@ import Head from 'next/head'
 import store from 'store'
 import { fetchPosts } from 'store/posts/actions'
 import { Link } from 'routes'
+import NProgress from 'components/NProgress'
 
 class PostsIndex extends Component {
   static getInitialProps({store}) {
@@ -20,6 +21,7 @@ class PostsIndex extends Component {
         <Head>
           <title>Posts Index</title>
         </Head>
+        <NProgress />
         <button onClick={() => { fetchPosts() }}>Click Me</button>
         <h1>Posts</h1>
         { posts.length > 0 && posts.map(function(post) {
