@@ -1,6 +1,8 @@
 {
   "name": "create-next-example-app",
   "scripts": {
+    "build-sass": "postcss scss/bundles/*.scss --dir static/css -x css",
+    "watch-sass": "postcss scss/bundles/*.scss --dir static/css -x css --watch",
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server"
@@ -23,5 +25,12 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "universal-cookie-express": "^2.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "cssnano": "^3.10.0",
+    "postcss": "^6.0.14",
+    "postcss-cssnext": "^3.0.2",
+    "precss": "^2.0.0"
   }
 }
