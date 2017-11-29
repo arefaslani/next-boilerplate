@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 import Head from 'next/head'
+import styles from './index.css'
 
 import store from 'store'
 import { fetchPosts } from 'store/posts/actions'
@@ -18,6 +19,7 @@ class PostsIndex extends Component {
     const { posts, fetchPosts } = this.props
     return (
       <div>
+        <style jsx>{styles}</style>
         <Head>
           <title>Posts Index</title>
         </Head>
