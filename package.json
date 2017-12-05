@@ -22,7 +22,6 @@
     "next-routes": "^1.1.0",
     "nprogress": "^0.2.0",
     "react": "^16.0.0",
-    "react-cookie": "^2.1.1",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
@@ -39,7 +38,6 @@
     "postcss": "^6.0.14",
     "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.0.2",
-    "precss": "^2.0.0",
     "styled-jsx-css-loader": "^0.3.0"
   }
 }
