@@ -1,5 +1,5 @@
 <div dir="rtl">
-# Next Boilerplate
+<h1>Next Boilerplate</h1>
 
 یک زیرساخت ساده برای تولید اپلیکیشن های React با قابلیت Server Side Rendering
 
