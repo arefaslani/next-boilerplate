@@ -2,8 +2,8 @@
   "name": "create-next-example-app",
   "scripts": {
     "node-sass-watch": "./node_modules/node-sass/bin/node-sass -w scss/bundles/*.scss -o scss/bundles",
-    "postcss-watch": "postcss scss/bundles/*.css --dir static/css -x css --watch",
-    "build-sass": "./node_modules/node-sass/bin/node-sass scss/bundles/*.scss -o scss/bundles && postcss scss/bundles/*.css --dir static/css -x css",
+    "postcss-watch": "./node_modules/postcss-cli/bin/postcss scss/bundles/*.css --dir static/css -x css --watch",
+    "build-sass": "./node_modules/node-sass/bin/node-sass scss/bundles/*.scss -o scss/bundles && ./node_modules/postcss-cli/bin/postcss scss/bundles/*.css --dir static/css -x css",
     "watch-sass": "run-p node-sass-watch postcss-watch",
     "start-dev": "node server",
     "dev": "run-p start-dev watch-sass",
@@ -37,6 +37,7 @@
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "postcss": "^6.0.14",
+    "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.0.2",
     "precss": "^2.0.0",
     "styled-jsx-css-loader": "^0.3.0"
