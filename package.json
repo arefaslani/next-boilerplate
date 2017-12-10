@@ -39,6 +39,8 @@
     "postcss": "^6.0.14",
     "postcss-cli": "^4.1.1",
     "postcss-cssnext": "^3.0.2",
+    "postcss-loader": "^2.0.9",
+    "sass-loader": "^6.0.6",
     "styled-jsx-css-loader": "^0.3.0"
   }
 }
