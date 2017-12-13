@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import withRedux from 'next-redux-wrapper'
 import withReduxSaga from 'next-redux-saga'
 import Head from 'next/head'
-import styles from './index.css'
+import styles from './index.scss'
 
 import store from 'store'
 import { fetchPosts } from 'store/posts/actions'
