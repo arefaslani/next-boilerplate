@@ -1,16 +1,9 @@
 {
   "name": "create-next-example-app",
   "scripts": {
-    "node-sass-watch": "./node_modules/node-sass/bin/node-sass -w scss/bundles/*.scss -o scss/bundles",
-    "postcss-watch": "./node_modules/postcss-cli/bin/postcss scss/bundles/*.css --dir static/css -x css --watch",
-    "build-sass": "./node_modules/node-sass/bin/node-sass scss/bundles/*.scss -o scss/bundles && ./node_modules/postcss-cli/bin/postcss scss/bundles/*.css --dir static/css -x css",
-    "watch-sass": "run-p node-sass-watch postcss-watch",
-    "start-dev": "node server",
-    "dev": "run-p start-dev watch-sass",
-    "build-production": "next build",
-    "build": "run-s build-sass build-production",
-    "start-production": "NODE_ENV=production node server",
-    "start": "run-s build-sass start-production"
+    "dev": "node server",
+    "build": "next build",
+    "start": "NODE_ENV=production node server"
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -32,13 +25,8 @@
     "universal-cookie-express": "^2.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
-    "cssnano": "^3.10.0",
+    "autoprefixer": "^7.2.2",
     "node-sass": "^4.7.2",
-    "npm-run-all": "^4.1.2",
-    "postcss": "^6.0.14",
-    "postcss-cli": "^4.1.1",
-    "postcss-cssnext": "^3.0.2",
     "postcss-loader": "^2.0.9",
     "sass-loader": "^6.0.6",
     "styled-jsx-css-loader": "^0.3.0"
