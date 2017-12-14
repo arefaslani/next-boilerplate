@@ -1,11 +1,19 @@
 {
-  "name": "create-next-example-app",
+  "name": "next-boilerplate",
+  "version": "0.9",
   "scripts": {
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "lint": "eslint .",
-    "pretty": "prettier --write \"./**/*.js\""
+    "pretty": "prettier-eslint --write \"./**/*.js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "yarn pretty",
+      "git add"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -37,9 +45,12 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",
     "prettier": "^1.9.2",
+    "prettier-eslint-cli": "^4.6.1",
     "sass-loader": "^6.0.6",
     "styled-jsx-css-loader": "^0.3.0"
   }
