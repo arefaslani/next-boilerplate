@@ -1,29 +1,26 @@
-import axios from 'axios'
+import axios from "axios";
 
-const facade = {}
+const facade = {};
 
-const api = axios.create({baseURL: 'https://jsonplaceholder.typicode.com'})
+const api = axios.create({ baseURL: "https://jsonplaceholder.typicode.com" });
 
-facade.request = (config) => api.request(config)
-
-;['get', 'head'].forEach((method) => {
-  facade[method] = (url, config) => facade.request({ ...config, method, url })
-})
-
-;['delete', 'post', 'put', 'patch'].forEach((method) => {
-  facade[method] = (url, data, config) => facade.request({ ...config, method, url, data })
-})
+facade.request = config => api.request(config);
+["get", "head"].forEach(method => {
+  facade[method] = (url, config) => facade.request({ ...config, method, url });
+});
+["delete", "post", "put", "patch"].forEach(method => {
+  facade[method] = (url, data, config) =>
+    facade.request({ ...config, method, url, data });
+});
 
 class API {
-  fetchAllPosts() {
-    return facade.get('/posts')
+  static fetchAllPosts() {
+    return facade.get("/posts");
   }
 
-  fetchPost(id) {
-    return facade.get(`/posts/${id}`)
+  static fetchPost(id) {
+    return facade.get(`/posts/${id}`);
   }
 }
 
-const apiInstance = new API()
-
-export default apiInstance
+export default API;

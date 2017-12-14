@@ -4,7 +4,8 @@
     "dev": "node server",
     "build": "next build",
     "start": "NODE_ENV=production node server",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "pretty": "prettier --write \"./**/*.js\""
   },
   "dependencies": {
     "axios": "^0.16.2",
@@ -24,7 +25,8 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "universal-cookie-express": "^2.1.0"
+    "universal-cookie-express": "^2.1.0",
+    "webpack": "^3.10.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.2",

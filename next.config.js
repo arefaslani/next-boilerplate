@@ -1,19 +1,18 @@
-const path = require('path')
-const { parsed: localEnv } = require('dotenv').config()
-const webpack = require('webpack')
+const path = require("path");
+const webpack = require("webpack");
+const { parsed: localEnv } = require("dotenv").config();
 
 module.exports = {
   webpack: (config, { dev }) => {
+    const conf = config;
     // Fixes npm packages that depend on `fs` module
-    config.node = {
-      fs: 'empty'
-    }
+    conf.node = {
+      fs: "empty"
+    };
 
-    config.plugins.push(
-      new webpack.EnvironmentPlugin(process.env)
-    )
+    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
-    config.module.rules.push({
+    conf.module.rules.push({
       test: /\.(sc|c)ss$/,
       use: [
         {
@@ -40,6 +39,6 @@ module.exports = {
       ]
     });
 
-    return config
+    return conf;
   }
-}
+};

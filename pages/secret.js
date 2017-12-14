@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
-import authenticate from 'services/auth/authenticate'
+import React, { Component } from "react";
+import authenticate from "services/auth/authenticate";
 
 export default class Secret extends Component {
   static getInitialProps(ctx) {
-    const { req, res } = ctx
-    const user = authenticate(ctx)
-    return {}
+    const user = authenticate(ctx);
+    return { user };
   }
 
   render() {
-    return (
-      <div>Secret Page</div>
-    )
+    return <div>Secret Page</div>;
   }
 }

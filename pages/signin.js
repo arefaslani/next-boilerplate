@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
-import signIn from 'services/auth/sign_in'
+import React, { Component } from "react";
+import signIn from "services/auth/sign_in";
 
 export default class Signin extends Component {
   static getInitialProps(ctx) {
-    signIn(ctx)
-    return {}
+    signIn(ctx);
+    return {};
   }
 
   render() {
-    return (
-      <div></div>
-    )
+    return <div />;
   }
 }
