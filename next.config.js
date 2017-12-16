@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const { parsed: localEnv } = require("dotenv").config();
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -11,6 +12,18 @@ module.exports = {
     };
 
     conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
+
+    if (dev) {
+      conf.plugins.push(
+        new BundleAnalyzerPlugin({
+          // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+          analyzerMode: "server",
+          analyzerHost: "127.0.0.1",
+          analyzerPort: 8888,
+          openAnalyzer: false
+        })
+      );
+    }
 
     conf.module.rules.push({
       test: /\.(sc|c)ss$/,
