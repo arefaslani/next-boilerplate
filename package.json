@@ -18,8 +18,10 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-eslint": "^8.0.3",
     "babel-plugin-module-resolver": "^3.0.0",
     "dotenv": "^4.0.0",
+    "eslint-plugin-flowtype": "^2.40.1",
     "express": "^4.16.2",
     "next": "^4.1.0",
     "next-redux-saga": "^1.0.1",
