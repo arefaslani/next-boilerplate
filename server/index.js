@@ -1,6 +1,7 @@
 // server.js
 const next = require("next");
 const cookiesMiddleware = require("universal-cookie-express");
+const compression = require("compression");
 
 const routes = require("../routes");
 
@@ -13,6 +14,7 @@ const express = require("express");
 app.prepare().then(() => {
   express()
     .use(cookiesMiddleware())
+    .use(compression())
     .use(handler)
     .listen(3000);
 });
