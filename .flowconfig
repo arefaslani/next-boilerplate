@@ -1,5 +1,6 @@
 [ignore]
-.*/node_modules/.*
+.*/node_modules/config-chain/test/broken.json
+.*/node_modules/npmconf/test/fixtures/package.json
 [include]
 
 [libs]
@@ -7,5 +8,11 @@
 [lints]
 
 [options]
-
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=.
+module.file_ext=.css
+module.file_ext=.scss
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
 [strict]
