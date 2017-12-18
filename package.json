@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-eslint": "^8.0.3",
+    "babel-plugin-import-static-files": "^1.0.3",
     "babel-plugin-module-resolver": "^3.0.0",
     "compression": "^1.7.1",
     "dotenv": "^4.0.0",
