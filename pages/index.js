@@ -10,7 +10,6 @@ import { fetchPosts } from "store/posts/actions";
 import { Link } from "routes";
 import NProgress from "components/NProgress";
 import styles from "./index.scss";
-import postImage from "./img.jpg";
 
 class PostsIndex extends Component {
   static getInitialProps({ store }) {
@@ -26,8 +25,6 @@ class PostsIndex extends Component {
           <title>Posts Index</title>
         </Head>
         <NProgress />
-        <img src={postImage} alt="posts" />
-        <br />
         <button
           onClick={() => {
             fetchPostsAction();

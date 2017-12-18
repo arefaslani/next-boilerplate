@@ -14,13 +14,6 @@
     [
       "module-resolver",
       { "root": ["./"] }
-    ],
-    [
-      "import-static-files",
-      {
-        "extensions": [".jpg", ".png", ".jpeg", ".svg"] ,
-        "baseDir": "/static/imported"
-      }
     ]
   ]
 }
