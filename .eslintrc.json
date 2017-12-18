@@ -1,5 +1,13 @@
 {
-    "extends": ["airbnb", "prettier"],
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb",
+        "prettier",
+        "plugin:flowtype/recommended"
+    ],
+    "plugins": [
+        "flowtype"
+    ],
     "settings": {
         "import/resolver": {
             "babel-module": {}
