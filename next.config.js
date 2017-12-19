@@ -13,17 +13,15 @@ module.exports = {
 
     conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
 
-    if (dev) {
-      conf.plugins.push(
-        new BundleAnalyzerPlugin({
-          // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-          analyzerMode: "server",
-          analyzerHost: "127.0.0.1",
-          analyzerPort: 8888,
-          openAnalyzer: false
-        })
-      );
-    }
+    conf.plugins.push(
+      new BundleAnalyzerPlugin({
+        // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
+        analyzerMode: dev ? "server" : "static",
+        analyzerHost: "127.0.0.1",
+        analyzerPort: 8888,
+        openAnalyzer: false
+      })
+    );
 
     conf.module.rules.push({
       test: /\.(sc|c)ss$/,
