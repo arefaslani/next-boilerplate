@@ -1,112 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Next.js Boilerplate</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-    crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
-    crossorigin="anonymous"></script>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
 
-  <style>
-    @font-face {
-      font-family: BYekan;
-      src: url('./assets/fonts/BYekan.ttf');
-    }
-
-    body {
-      text-align: right;
-      direction: rtl;
-      font-family: BYekan;
-    }
-
-    .main {
-      padding-top: 10px;
-    }
-
-    h2 {
-      padding: 20px 0 0 0;
-    }
-
-    hr {
-      border: 0;
-      height: 1px;
-      margin-bottom: 30px;
-      background-image: -webkit-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
-      background-image: -moz-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
-      background-image: -ms-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
-      background-image: -o-linear-gradient(left, #f0f0f0, #bbb, #f0f0f0);
-    }
-  </style>
-</head>
-<body>
-  <div class="main container">
-    <div class="jumbotron text-center">
-      <h1 class="display-3">Next.js Boilerplate</h1>
-      <p class="lead">بنیانی مینیمال برای ساخت اپلیکیشن های یونیورسال React، نیرو گرفته از Next.js</p>
-    </div>
-
-    <div class="main-parts">
-      <h2 class="text-center">اجزای اصلی تشکیل دهنده</h2>
-      <hr>
-      <div class="divider"></div>
-      <div class="row">
-        <div class="col-md">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="./assets/images/next.png" alt="Next" height="300">
-            <div class="card-body">
-              <h4 class="card-title">Next.js</h4>
-              <p class="card-text">فوندانسیون این پکیج روی Next.js بنا شده است. Next چهارچوبی برای تولید اپلیکیشن های Universal جاوااسکریپت است.</p>
-              <a href="https://zeit.co/blog/next4" target="_blank" class="btn btn-primary">وبسایت Next.js</a>
-            </div>
-          </div>
+    <title>Next Boilerplate</title>
+  </head>
+  <body class="landing">
+    <header class="next_navbar d-flex flex-column align-items-center">
+      <nav class="d-flex justify-content-around align-items-center mb-0 mb-md-4">
+        <div class="logo d-flex justify-content-around align-items-center px-2 px-sm-3">
+          
+          <span class="mt-1 d-none d-md-block">Next Boilerplate</span>
         </div>
-        <div class="col-md">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="./assets/images/react.png" alt="React" height="300">
-            <div class="card-body">
-              <h4 class="card-title">React</h4>
-              <p class="card-text">این بسته به صورت پیش فرض با React کانفیگ شده. اما با Inferno یا Preact نیز سازگار است.</p>
-              <a href="https://reactjs.org/" target="_blank" class="btn btn-primary">وبسایت React</a>
-            </div>
-          </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3 active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="./docs">Documentions</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="#">Examples</a>
+          </li> -->
+        </ul>
+        <div class="github d-flex align-items-center">
+          <span class="version d-none d-md-block">v1.0</span>
+          <a href="https://github.com/arefaslani/next-boilerplate" class="d-flex align-items-center nav-link px-2 px-sm-3">
+            <i class="fab fa-github mr-1"></i>
+            <span class="d-none d-md-block">View on Github</span>
+          </a>
         </div>
-        <div class="col-md">
-          <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="./assets/images/redux.png" alt="Redux" height="300">
-            <div class="card-body">
-              <h4 class="card-title">Redux</h4>
-              <p class="card-text">در این بسته از Redux جهت مدیریت state اپلیکیشن استفاده می شود.</p>
-              <a href="http://redux.js.org/" target="_blank" class="btn btn-primary">وبسایت Redux</a>
-            </div>
-          </div>
-        </div>
+      </nav>
+      <div class="d-flex flex-column align-items-center px-2 px-md-5 py-5">
+        <h1>NEXT Boilerplate</h1>
+        <h2 style="font-size: 16px;">Made by &nbsp;<i class="fas fa-heart" style="color: red;"></i>&nbsp; by juniors, for seniors!</h2>
+        <p class="text-center py-3">Simple and easy to use, somewhat opinionated Next boilerplate with redux, redux-saga, dynamic routing, external css, scss and all the cool stuff!</p>
+        <a href="./docs" class="get_started my-4">Get Started</a>
+      </div>
+    </header>
+    <div class="row p-0 m-0">
+      <div class="col d-flex flex-wrap align-items-center justify-content-around my-5">
+        <img class="image my-2 mx-1" src="./img/airbnb.png" alt="airbnb">
+        <img class="image my-2 mx-1" src="./img/eslint.png" alt="eslint">
+        <img class="image my-2 mx-1" src="./img/flow.png" alt="flow">
+        <img class="image my-2 mx-1" src="./img/next.png" alt="next">
+        <img class="image my-2 mx-1" src="./img/express.png" alt="express">
+        <img class="image my-2 mx-1" src="./img/node.png" alt="node">
+        <img class="image my-2 mx-1" src="./img/prettier.png" alt="prettier">
+        <img class="image my-2 mx-1" src="./img/react.png" alt="react">
+        <img class="image my-2 mx-1" src="./img/sass.png" alt="sass">
+        <img class="image my-2 mx-1" src="./img/redux.png" alt="redux">
+        <img class="image my-2 mx-1" src="./img/storybook.png" alt="storybook">
+        <img class="image my-2 mx-1" src="./img/webpack.png" alt="webpack">
       </div>
     </div>
-    <div class="side-parts">
-      <h2 class="text-center">سایر اجزا</h2>
-      <hr>
-      <ul>
-        <li><b>Redux Saga</b>: در این مجموعه جهت مدیریت side effect ها و عملیات های async از Redux Saga استفاده شده است.</li>
-        <li>
-          <b>Redux Logger</b>: تمامی اکشن ها به همراه تغییراتی که در state ایجاد کرده اند مانند آنچه در عکس زیر می بینید در کنسول مرورگر لاگ می شوند.
-          <br>
-          <img src="./assets/images/console.png" alt="">
-          <br>
-          Redux Logger فقط در محیط development فعال است.
-        </li>
-        <li>
-          <b>Redux Dev tools Extension</b>: نمایش state اپلیکیشن در افزونه redux dev tools
-          <br>
-          <img src="./assets/images/redux-dev-tools.png" alt="">
-          <br>
-          این افزونه فقط در محیط development فعال است.
-        </li>
-        <li><b>Axios</b>: برای ارسال درخواست های HTTP از Axios استفاده شده است.</li>
-      </ul>
+    <div class="content container">
+      <div class="row">
+        <div class="col-12 col-md-6 d-flex flex-column align-items-start px-4 mb-5">
+          <i class="fas fa-download fa-2x mb-2"></i>
+          <h2 class="">Installation</h2>
+          <p class="text-justify my-3">Just clone the repo, install dependencies, change custom settings and install development. That's all!.</p>
+          <a href="/docs/#installation" class="button_outline">Installations Docs</a>
+        </div>
+        <div class="col-12 col-md-6 d-flex flex-column align-items-start px-4 mb-5">
+          <i class="fas fa-terminal fa-2x mb-2"></i>
+          <h2 class="">Easier than you think!</h2>
+          <p class="text-justify my-3">All the things a project might need is added and configured. Just start and concentrate on your IDEA, not the code.</p>
+          <a href="./docs" class="button_outline">Read More</a>
+        </div>
+      </div>
+      <footer class="mb-3">
+        <div class="row">
+          <div class="col col-md-6 p-0">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="https://github.com/arefaslani/next-boilerplate">Github</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#">Examples</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/docs/contribution">Contributors</a>
+              </li>
+            </ul>
+            <p class="text-justify px-3">
+              This boilerplate is designed as simple and feature rich as possible, but not forcing you
+              to use all the features we currently configured. Feel free to add or remove any feature
+              that you like.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
-  </div>
-</body>
+
+    <!-- Optional JavaScript -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+  </body>
 </html>

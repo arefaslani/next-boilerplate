@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>Next Boilerplate !!</title>
+  </head>
+  <body class="docs">
+    <header class="next_navbar d-flex flex-column align-items-center">
+      <nav class="d-flex justify-content-between align-items-center">
+        <div class="button_menu d-block d-md-none mx-3" onclick="_handleMenu()"></div>
+        <div class="logo d-none d-md-flex justify-content-around align-items-center px-2 px-sm-3">
+          
+          <span class="mt-1">Next Boilerplate</span>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3 active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="/docs">Documentions</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="#">Examples</a>
+          </li> -->
+        </ul>
+        <div class="github d-flex align-items-center">
+          <span class="version d-none d-md-block">v1.0</span>
+          <a href="https://github.com/arefaslani/next-boilerplate" class="d-flex align-items-center nav-link px-2 px-sm-3">
+            <i class="fab fa-github mr-1"></i>
+            <span class="d-none d-md-block">View on Github</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <div id="cont" class="d-flex">
+      <nav class="side">
+        <ul class="nav nav-tabs border-0 flex-column">
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs">Getting Started</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/code-formatting">Code Formatting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/style">Style</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3 active" href="/docs/server">Server</a>
+            <ol class="pl-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#express">Express</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#commands">Commands</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#environment-variables">Environment Variables</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#cookies">Cookies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#analyzer">Webpack Bundle Analyzer</a>
+              </li>
+            </ol>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/next-react">Next and React</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/utilities">Utilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/contribution">Contribution</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="content_docs p-3">
+        <div class="row p-0 m-0">
+          <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+            <h2 id="express">Express</h2>
+            <p>
+              Both client and server run with <strong>Express</strong>. You can add any express plugin to the
+              server. The configuration file is in the <strong>server/index</strong> file. Currently we've added
+              <strong>compression</strong> and <strong>cookies</strong> middleware to the express that you can
+              remove them if you like.
+            </p>
+            <h2 id="commands">Commands</h2>
+            <p>
+              This package comes with 3 main commands:
+              <ul>
+                <li>
+                  <strong>dev</strong>: Starts the development server.
+                </li>
+                <li>
+                  <strong>start</strong>: Starts the production server.
+                </li>
+                <li>
+                  <strong>build</strong>: Builds the project for production.
+                </li>
+                <li></li>
+              </ul>
+            </p>
+            <h2 id="environment-variables">Environment Variables</h2>
+            <p>
+              There is a <strong>.env.example</strong> file in the root directory. Rename it to
+              <strong>.env</strong> and define your environment variables there. Then in the code
+              you can use those variables, for example
+<pre class="rounded mt-3">
+<code class="js">process.env.YOUR_ENV_VAR</code>
+</pre>
+            </p>
+            <h2 id="cookies">Cookies</h2>
+            <p>
+              We used to use <strong>localStorage</strong> for storing access tokens received from
+              the API. But as you know, localStorage is a browser API and doesn't work in the server.
+              So we added support for reading and writing cookies. For writing cookies we added an
+              express middleware. Writing cookies is as follow:
+<pre class="rounded mt-3">
+<code class="js">import React, { Component } from 'react'
+
+export default class MyPage extends Component {
+  static getInitialProps({req}) {
+    req.universalCookies.set("token", token);
+    return {}
+  }
+
+  render() {
+    ...
+  }
+}
+</code>
+</pre>
+              Reading cookies is as simple as writing them
+<pre class="rounded mt-3">
+<code class="js">import React, { Component } from 'react'
+import cookies from 'next-cookies'
+
+export default class SomePage extends Component {
+  static getInitialProps(ctx) {
+    const {token} = cookies(ctx)
+    return {token}
+  }
+
+  render() {
+    const {token} = this.props
+    ...
+  }
+}
+</code>
+</pre>
+            </p>
+            <h2 id="analyzer">Webpack Bundle Analyzer</h2>
+            <p>
+              We've added Webpack Bundle Analyzer in the webpack config in <strong>next.config.js</strong>.
+              In <strong>dev</strong> mode an Analyzer server runs on port <strong>8888</strong> and in
+              <strong>production</strong> environment after building project, a static html file will be
+              created in the <strong>.next/report.html</strong>.
+            </p>
+          </div>
+          <div class="d-none d-xl-block col-xl-4">
+            <ul class="section-nav ml-5">
+              <li class="toc-entry"><a href="#express">Express</a></li>
+              <li class="toc-entry"><a href="#commands">Commands</a></li>
+              <li class="toc-entry"><a href="#environment-variables">Environment Variables</a></li>
+              <li class="toc-entry"><a href="#environment-variables">Cookies</a></li>
+              <li class="toc-entry"><a href="#analyzer">Webpack Bundle Analyzer</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      document.addEventListener('touchend', outsideClickListener, false)
+      function outsideClickListener(el){
+        if (!el.target.classList.contains('button_menu')) {
+          document.getElementById("cont").classList.remove('show')
+        }
+      }
+      function _handleMenu(){
+        document.getElementById("cont").classList.toggle('show')
+      }
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

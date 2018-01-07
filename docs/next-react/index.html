@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>Next Boilerplate !!</title>
+  </head>
+  <body class="docs">
+    <header class="next_navbar d-flex flex-column align-items-center">
+      <nav class="d-flex justify-content-between align-items-center">
+        <div class="button_menu d-block d-md-none mx-3" onclick="_handleMenu()"></div>
+        <div class="logo d-none d-md-flex justify-content-around align-items-center px-2 px-sm-3">
+          
+          <span class="mt-1">Next Boilerplate</span>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3 active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="/docs">Documentions</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="#">Examples</a>
+          </li> -->
+        </ul>
+        <div class="github d-flex align-items-center">
+          <span class="version d-none d-md-block">v1.0</span>
+          <a href="https://github.com/arefaslani/next-boilerplate" class="d-flex align-items-center nav-link px-2 px-sm-3">
+            <i class="fab fa-github mr-1"></i>
+            <span class="d-none d-md-block">View on Github</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <div id="cont" class="d-flex">
+      <nav class="side">
+        <ul class="nav nav-tabs border-0 flex-column">
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs">Getting Started</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/code-formatting">Code Formatting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/style">Style</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/server">Server</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3 active" href="/docs/next-react">Next and React</a>
+            <ol class="pl-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#next">Next JS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#redux">Redux</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#redux-saga">Redux Saga</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#routes">Dynamic Routes</a>
+              </li>
+            </ol>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/utilities">Utilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/contribution">Contribution</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="content_docs p-3">
+        <div class="row p-0 m-0">
+          <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+            <h2 id="next">Next JS</h2>
+            <p>
+              This boilerplate is built on top of <strong><a href="https://github.com/zeit/next.js/">Next JS</a></strong>.
+              Before reading this section, please take a look at Next docs. <a href="https://learnnextjs.com/">https://learnnextjs.com/</a>
+              is also a good starting point for learning <strong>Next JS</strong>.
+            </p>
+            <h2 id="redux">Redux</h2>
+            <p>
+              In pages directory, for connecting a page with redux, use <strong>withRedux</strong> HOC.
+<pre class="rounded mt-3">
+<code class="js">import React from 'react'
+import withRedux from 'next-redux-wrapper'
+
+import Store from 'store'
+
+const SomePage = (props) => {
+  return (
+    &lt;div&gt;Some Page!&lt;/div&gt;
+  )
+}
+
+const mapStateToProps = state => {
+  ...
+}
+
+const mapDispatchToProps = dispatch => {
+  ...
+}
+
+export default withRedux(Store, mapStateToProps, mapDispatchToProps)(somePage)
+</code>
+</pre>
+              But in containers use react-redux <strong>connect</strong> function.
+              All the actions and reducers are in the <strong>store</strong> directory by default. but if
+              you like, you can change it. For creating new state properties, create a directory in the
+              store directory, for example todos. Inside the todos directory create an <strong>actions.js</strong>
+              for actions and <strong>reducer.js</strong> for reducers. then in <strong>store/reducer.js</strong>
+              import the created reducer.
+            </p>
+            <h2 id="redux-saga">Redux Saga</h2>
+            <p>
+              Suppose you want to create <strong>sagas</strong> for the <strong>todos</strong>. Simply create a
+              <strong>sagas.js</strong> inside <strong>store/todos/sagas.js</strong>, define your sagas and import
+              it in the root saga in <strong>store/sagas.js</strong> file.
+              If you want to connect your page to sagas, you can use <strong>withReduxSaga</strong> HOC.
+<pre class="rounded mt-3">
+<code class="js">import React from 'react'
+import withRedux from 'next-redux'
+import withReduxSaga from 'next-redux-saga'
+
+const SomePage = props => {
+  ...
+}
+
+const mapStateToProps = state => {
+  ...
+}
+
+const mapDispatchToProps = dispatch => {
+  ...
+}
+
+export default withRedux(Store, mapStateToProps, mapDispatchToProps)(withReduxSaga(SomePage))
+</code>
+</pre>
+            </p>
+            <h2 id="routes">Dynamic Routes</h2>
+            <p>
+              By default, Next will create a route for every file you create inside the <strong>pages</strong> directory.
+              For example if you create a page in the <strong>pages/some_page.js</strong>, Next will create the
+              <strong>/some_page</strong> route for it. But for creating dynamic routes, you can use <strong>next-routes</strong>
+              library that is configured in this boilerplate. By default, the <strong>routes</strong> file is in the root of
+              the project. You can define your dynamic routes there. For linking between pages, import <strong>Link</strong>
+              component from the <strong>routes</strong> file instead of next. That means instead of
+<pre class="rounded mt-3">
+<code class="js">import Link from 'next/link'</code>
+</pre>
+              use
+<pre class="rounded mt-3">
+<code class="js">import {Link} from 'routes'</code>
+</pre>
+              Also you can import <strong>Router</strong> from the routes file.
+<pre class="rounded mt-3">
+<code class="js">import {Router} from 'routes'</code>
+</pre>
+              Fore more information please read the <a href="https://github.com/fridays/next-routes">next-routes</a> docs.
+            </p>
+          </div>
+          <div class="d-none d-xl-block col-xl-4">
+            <ul class="section-nav ml-5">
+              <li class="toc-entry"><a href="#next">Next JS</a></li>
+              <li class="toc-entry"><a href="#redux">Redux</a></li>
+              <li class="toc-entry"><a href="#redux-saga">Redux Saga</a></li>
+              <li class="toc-entry"><a href="#routes">Dynamic Routes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      document.addEventListener('touchend', outsideClickListener, false)
+      function outsideClickListener(el){
+        if (!el.target.classList.contains('button_menu')) {
+          document.getElementById("cont").classList.remove('show')
+        }
+      }
+      function _handleMenu(){
+        document.getElementById("cont").classList.toggle('show')
+      }
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

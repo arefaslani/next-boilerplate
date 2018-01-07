@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/rainbow.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>Next Boilerplate !!</title>
+  </head>
+  <body class="docs">
+    <header class="next_navbar d-flex flex-column align-items-center">
+      <nav class="d-flex justify-content-between align-items-center">
+        <div class="button_menu d-block d-md-none mx-3" onclick="_handleMenu()"></div>
+        <div class="logo d-none d-md-flex justify-content-around align-items-center px-2 px-sm-3">
+          <span class="mt-1">Next Boilerplate</span>
+        </div>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3 active" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="/docs">Documentions</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link px-2 px-sm-3" href="#">Examples</a>
+          </li> -->
+        </ul>
+        <div class="github d-flex align-items-center">
+          <span class="version d-none d-md-block">v1.0</span>
+          <a href="https://github.com/arefaslani/next-boilerplate" class="d-flex align-items-center nav-link px-2 px-sm-3">
+            <i class="fab fa-github mr-1"></i>
+            <span class="d-none d-md-block">View on Github</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <div id="cont" class="d-flex">
+      <nav class="side">
+        <ul class="nav nav-tabs border-0 flex-column">
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs">Getting Started</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3 active" href="/docs/code-formatting">Code Formatting</a>
+            <ol class="pl-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#styleguide">Styleguide</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#prettier">Prettier</a>
+              </li>
+            </ol>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/style">Style</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/server">Server</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/next-react">Next and React</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/utilities">Utilities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link border-0 px-3" href="/docs/contribution">Contribution</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="content_docs p-3">
+        <div class="row p-0 m-0">
+          <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5">
+            <h2 id="styleguide">Styleguide</h2>
+            <p>
+              This boilerplate enforces Airbnb's <a href="https://github.com/airbnb/javascript">Javascript Style Guide</a> that is configured with <strong>ESLint</strong>.
+              Everytime you change a file and commit it in git, a git precommit hook fires that automatically fixes the issues of the staged files with <strong>ESLint</strong>.
+              This feature is configured with <strong>husky</strong> and <strong>lint-staged</strong> libraries and if you don't like it, you can remove the <strong>eslint --fix</strong> section from the lint-staged
+              property of the <strong>package.json</strong> file.
+<pre class="rounded mt-3">
+<code class="json">...
+"lint-staged": {
+  "*.js": [
+    "eslint --fix",
+    "prettier-eslint --write",
+    "git add"
+  ]
+},
+...
+</code></pre>
+              All Eslint configurations are in the <strong>.eslintrc</strong> file. Also
+              you can ignore files in <strong>.eslintignore</strong> file in the root directory.
+            </p>
+            <h2 id="prettier">Prettier</h2>
+            <p>
+              Using <a href="https://github.com/prettier/prettier">Prettier</a> it automatically formats your code
+              before commit. You can ignore files in <strong>.prettierignore</strong> file in the root directory.
+            </p>
+          </div>
+          <div class="d-none d-xl-block col-xl-4">
+            <ul class="section-nav ml-5">
+              <li class="toc-entry"><a href="#styleguide">Styleguide</a></li>
+              <li class="toc-entry"><a href="#prettier">Prettier</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      document.addEventListener('touchend', outsideClickListener, false)
+      function outsideClickListener(el){
+        if (!el.target.classList.contains('button_menu')) {
+          document.getElementById("cont").classList.remove('show')
+        }
+      }
+      function _handleMenu(){
+        document.getElementById("cont").classList.toggle('show')
+      }
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>
