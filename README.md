@@ -1,30 +1,24 @@
-<div dir="rtl">
-<h1>Next Boilerplate</h1>
+# NEXT Boilerplate
+Lightweight Next boilerplate!
+## Background
+We had tough times working with Next to make it our beloved framework. We opened issues (https://github.com/zeit/next.js/issues/3131), make pull requests and discuss a lot in the slack channel of NextJs. Unfortunately some of our must have features was not supported at that time. So we started creating a boilerplate that had all the features we wanted on top of Next.
 
-یک زیرساخت ساده برای تولید اپلیکیشن های React با قابلیت Server Side Rendering
+## Features
+* **redux** for handling application state
+* **redux-saga** for handling async actions and side-effects
+* **next-routes** for handling dynamic routes
+* **axios** for making HTTP requests
+* **dotenv** for using environment variables
+* **express** as the server
+* **redux-devtools** in development
+* **redux-logger** in development for managing actions and state changes they cause
+* **universal-cookie-express** as a middleware for easily writing cookies
+* **compression** for compressing static assets
+* **babel-plugin-module-resolver** for importing modules related to the root directory
+* **prettier** and **eslint** configured with **airbnb**'s styleguide for formating code
+* **husky** and **lint-staged** for autoformatting code before commit
+* **sass-loader** and **styled-jsx-css-loader** for importing css and scss as scoped styled-jsx
 
-بعضی از قابلیت های این پکیج عبارتند از:
-* [redux](https://github.com/reactjs/redux)
-برای مدیریت state اپلیکیشن
-* [redux-saga](https://github.com/redux-saga/redux-saga)
-مدیریت side effetct های اپلیکیشن، مثل واکشی داده از API یا دسترسی به Cache مرورگر
-* [redux-logger](https://github.com/evgenyrodionov/redux-logger)
-امکان لاگ کردن اکشن ها و تغییرات state به واسطه اجرای آنها در کنسول مرورگر.
-* [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension)
-مشاهده و مدیریت وضعیت state اپلیکیشن
-* [axios](https://github.com/axios/axios)
-کلاینت HTTP
-* [babel-plugin-module-resolver](https://github.com/tleunen/babel-plugin-module-resolver)
-به منظور مرتب سازی سورس کد و امکان import کردن فایل ها از مسیر ریشه.
-* [node-sass](https://github.com/sass/node-sass)
-امکان کامپایل کردن فایل scss به صورت global
-* [postcss](http://postcss.org/)
-به منظور autoprefix و minify کردن فایل های scss
-* [styled-jsx-css-loader](https://github.com/coox/styled-jsx-css-loader)
-برای لود کردن فایل های css در کامپوننت ها به صورت styled-jsx
-* [next-routes](https://github.com/fridays/next-routes) امکان تعریف Dynamic Named Routes
-* [universal-cookie-express](https://github.com/reactivestack/cookies/tree/master/packages/universal-cookie-express)
-یک middleware برای express که قابلیت نوشتن کوکی را به صورت کاملا ساده در اپلیکیشن فراهم می کند.
+this boilerplate also includes **flow** and **storybook** that you can easily remove them if you don't like.
 
-برای مطالعه بیشتر به صفحه [مستندات](https://arefaslani.github.io/next-boilerplate) مراجعه کنید.
-</div>
+For more information please read the [docs](https://arefaslani.github.io/next-boilerplate)
