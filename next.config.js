@@ -4,7 +4,7 @@ const { parsed: localEnv } = require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
-  webpack: (config, { dev }) => {
+  webpack: (config, { dev, isServer }) => {
     const conf = config;
     // Fixes npm packages that depend on `fs` module
     conf.node = {
@@ -18,37 +18,54 @@ module.exports = {
         // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
         analyzerMode: dev ? "server" : "static",
         analyzerHost: "127.0.0.1",
-        analyzerPort: 8888,
+        analyzerPort: isServer ? 8888 : 8889,
         openAnalyzer: false
       })
     );
 
-    conf.module.rules.push({
-      test: /\.(sc|c)ss$/,
-      use: [
-        {
-          loader: "emit-file-loader",
-          options: {
-            name: "dist/[path][name].[ext].js"
+    conf.module.rules.push(
+      {
+        test: /\.(sc|c)ss$/,
+        use: [
+          {
+            loader: "emit-file-loader",
+            options: {
+              name: "dist/[path][name].[ext].js"
+            }
+          },
+          {
+            loader: "babel-loader",
+            options: {
+              babelrc: false,
+              extends: path.resolve(__dirname, "./.babelrc")
+            }
+          },
+          "styled-jsx-css-loader",
+          { loader: "postcss-loader", options: { sourceMap: dev } },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: dev
+            }
           }
-        },
-        {
-          loader: "babel-loader",
-          options: {
-            babelrc: false,
-            extends: path.resolve(__dirname, "./.babelrc")
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|svg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              fallback: "file-loader",
+              publicPath: "/_next/",
+              outputPath: "static/images/",
+              name: "[name]-[hash].[ext]"
+            }
           }
-        },
-        "styled-jsx-css-loader",
-        { loader: "postcss-loader", options: { sourceMap: dev } },
-        {
-          loader: "sass-loader",
-          options: {
-            sourceMap: dev
-          }
-        }
-      ]
-    });
+        ]
+      }
+    );
 
     return conf;
   }
