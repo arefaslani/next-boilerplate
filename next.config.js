@@ -4,7 +4,7 @@ const { parsed: localEnv } = require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 module.exports = {
-  webpack: (config, { dev }) => {
+  webpack: (config, { dev, isServer }) => {
     const conf = config;
     // Fixes npm packages that depend on `fs` module
     conf.node = {
@@ -18,7 +18,7 @@ module.exports = {
         // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
         analyzerMode: dev ? "server" : "static",
         analyzerHost: "127.0.0.1",
-        analyzerPort: 8888,
+        analyzerPort: isServer ? 8888 : 8889,
         openAnalyzer: false
       })
     );
