@@ -23,32 +23,49 @@ module.exports = {
       })
     );
 
-    conf.module.rules.push({
-      test: /\.(sc|c)ss$/,
-      use: [
-        {
-          loader: "emit-file-loader",
-          options: {
-            name: "dist/[path][name].[ext].js"
+    conf.module.rules.push(
+      {
+        test: /\.(sc|c)ss$/,
+        use: [
+          {
+            loader: "emit-file-loader",
+            options: {
+              name: "dist/[path][name].[ext].js"
+            }
+          },
+          {
+            loader: "babel-loader",
+            options: {
+              babelrc: false,
+              extends: path.resolve(__dirname, "./.babelrc")
+            }
+          },
+          "styled-jsx-css-loader",
+          { loader: "postcss-loader", options: { sourceMap: dev } },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: dev
+            }
           }
-        },
-        {
-          loader: "babel-loader",
-          options: {
-            babelrc: false,
-            extends: path.resolve(__dirname, "./.babelrc")
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|svg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              fallback: "file-loader",
+              publicPath: "/_next/",
+              outputPath: "static/images/",
+              name: "[name]-[hash].[ext]"
+            }
           }
-        },
-        "styled-jsx-css-loader",
-        { loader: "postcss-loader", options: { sourceMap: dev } },
-        {
-          loader: "sass-loader",
-          options: {
-            sourceMap: dev
-          }
-        }
-      ]
-    });
+        ]
+      }
+    );
 
     return conf;
   }
