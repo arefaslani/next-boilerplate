@@ -19,6 +19,7 @@
     ]
   },
   "dependencies": {
+    "@zeit/next-source-maps": "^0.0.2",
     "axios": "^0.17.1",
     "babel-eslint": "^8.0.3",
     "babel-plugin-module-resolver": "^3.0.0",

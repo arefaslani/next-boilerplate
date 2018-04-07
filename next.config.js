@@ -2,8 +2,9 @@ const path = require("path");
 const webpack = require("webpack");
 const { parsed: localEnv } = require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const withSourceMaps = require("@zeit/next-source-maps");
 
-module.exports = {
+module.exports = withSourceMaps({
   webpack: (config, { dev, isServer }) => {
     const conf = config;
     // Fixes npm packages that depend on `fs` module
@@ -69,4 +70,4 @@ module.exports = {
 
     return conf;
   }
-};
+});
