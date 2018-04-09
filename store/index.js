@@ -25,7 +25,13 @@ const createStoreWithMiddleware = composeWithDevTools(
 
 const makeStore = (initialState, options) => {
   const store = createStoreWithMiddleware(reducer, initialState);
-  store.sagaTask = sagaMiddleware.run(rootSaga);
+
+  store.runSagaTask = () => {
+    store.sagaTask = sagaMiddleware.run(rootSaga);
+  };
+  // run the rootSaga initially
+  store.runSagaTask();
+
   return store;
 };
 
