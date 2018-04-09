@@ -122,7 +122,7 @@
             </p>
             <h2 id="cookies">Cookies</h2>
             <p>
-              We used to use <strong>localStorage</strong> for storing access tokens received from
+              We where using <strong>localStorage</strong> for storing access tokens received from
               the API. But as you know, localStorage is a browser API and doesn't work in the server.
               So we added support for reading and writing cookies. For writing cookies we added an
               express middleware. Writing cookies is as follow:
@@ -163,9 +163,10 @@ export default class SomePage extends Component {
             <h2 id="analyzer">Webpack Bundle Analyzer</h2>
             <p>
               We've added Webpack Bundle Analyzer in the webpack config in <strong>next.config.js</strong>.
-              In <strong>dev</strong> mode an Analyzer server runs on port <strong>8888</strong> and in
-              <strong>production</strong> environment after building project, a static html file will be
-              created in the <strong>.next/report.html</strong>.
+              For analyzing server bundle add <strong>BUNDLE_ANALYZE=server</strong>, for client add
+              <strong>BUNDLE_ANALYZE=client</strong> and for analyzing both, add <strong>BUNDLE_ANALYZE=both</strong>
+              before <strong>yarn dev</strong> or <strong>yarn build</strong> commands.
+              You can change location of report files in next config file.
             </p>
           </div>
           <div class="d-none d-xl-block col-xl-4">
