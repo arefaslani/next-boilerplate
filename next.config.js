@@ -3,8 +3,12 @@ const webpack = require("webpack");
 const { parsed: localEnv } = require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const withSourceMaps = require("@zeit/next-source-maps");
+const withOptimizedImages = require("next-optimized-images");
+const withPlugins = require("next-compose-plugins");
 
-module.exports = withSourceMaps({
+const plugins = [withSourceMaps, withOptimizedImages];
+
+module.exports = withPlugins([...plugins], {
   webpack: (config, { dev, isServer }) => {
     const conf = config;
     // Fixes npm packages that depend on `fs` module
@@ -24,49 +28,32 @@ module.exports = withSourceMaps({
       })
     );
 
-    conf.module.rules.push(
-      {
-        test: /\.(sc|c)ss$/,
-        use: [
-          {
-            loader: "emit-file-loader",
-            options: {
-              name: "dist/[path][name].[ext].js"
-            }
-          },
-          {
-            loader: "babel-loader",
-            options: {
-              babelrc: false,
-              extends: path.resolve(__dirname, "./.babelrc")
-            }
-          },
-          "styled-jsx-css-loader",
-          { loader: "postcss-loader", options: { sourceMap: dev } },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: dev
-            }
+    conf.module.rules.push({
+      test: /\.(sc|c)ss$/,
+      use: [
+        {
+          loader: "emit-file-loader",
+          options: {
+            name: "dist/[path][name].[ext].js"
           }
-        ]
-      },
-      {
-        test: /\.(jpe?g|png|svg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-              fallback: "file-loader",
-              publicPath: "/_next/",
-              outputPath: "static/images/",
-              name: "[name]-[hash].[ext]"
-            }
+        },
+        {
+          loader: "babel-loader",
+          options: {
+            babelrc: false,
+            extends: path.resolve(__dirname, "./.babelrc")
           }
-        ]
-      }
-    );
+        },
+        "styled-jsx-css-loader",
+        { loader: "postcss-loader", options: { sourceMap: dev } },
+        {
+          loader: "sass-loader",
+          options: {
+            sourceMap: dev
+          }
+        }
+      ]
+    });
 
     return conf;
   }
