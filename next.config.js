@@ -1,12 +1,32 @@
 const path = require("path");
 const webpack = require("webpack");
 const { parsed: localEnv } = require("dotenv").config();
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 const withSourceMaps = require("@zeit/next-source-maps");
 const withOptimizedImages = require("next-optimized-images");
 const withPlugins = require("next-compose-plugins");
+const withBundleAnalyzer = require("@zeit/next-bundle-analyzer");
 
-const plugins = [withSourceMaps, withOptimizedImages];
+const plugins = [
+  withSourceMaps,
+  withOptimizedImages,
+  [
+    withBundleAnalyzer,
+    {
+      analyzeServer: ["server", "both"].includes(process.env.BUNDLE_ANALYZE),
+      analyzeBrowser: ["browser", "both"].includes(process.env.BUNDLE_ANALYZE),
+      bundleAnalyzerConfig: {
+        server: {
+          analyzerMode: "static",
+          reportFilename: "../server-analyze.html"
+        },
+        browser: {
+          analyzerMode: "static",
+          reportFilename: "client-analyze.html"
+        }
+      }
+    }
+  ]
+];
 
 module.exports = withPlugins([...plugins], {
   webpack: (config, { dev, isServer }) => {
@@ -17,16 +37,6 @@ module.exports = withPlugins([...plugins], {
     };
 
     conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
-
-    conf.plugins.push(
-      new BundleAnalyzerPlugin({
-        // For all options see https://github.com/th0r/webpack-bundle-analyzer#as-plugin
-        analyzerMode: dev ? "server" : "static",
-        analyzerHost: "127.0.0.1",
-        analyzerPort: isServer ? 8888 : 8889,
-        openAnalyzer: false
-      })
-    );
 
     conf.module.rules.push({
       test: /\.(sc|c)ss$/,
