@@ -3,7 +3,7 @@ import { bindActionCreators } from "redux";
 import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
 import Head from "next/head";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 import { fetchPost } from "store/posts/actions";
 import Store from "store";
@@ -37,8 +37,8 @@ class Post extends Component {
 }
 
 Post.propTypes = {
-  post: PropTypes.shape.isRequired
-}
+  post: PropTypes.shape({}).isRequired
+};
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

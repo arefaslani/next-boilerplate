@@ -12,7 +12,6 @@
   },
   "lint-staged": {
     "*.js": [
-      "flow",
       "eslint --fix",
       "prettier-eslint --write",
       "git add"
@@ -23,6 +22,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-styled-components": "^1.5.1",
     "compression": "^1.7.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
@@ -32,8 +32,8 @@
     "next-routes": "^1.4.2",
     "nprogress": "^0.2.0",
     "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.2",
@@ -64,7 +64,6 @@
     "postcss-loader": "^2.1.5",
     "prettier": "^1.13.5",
     "prettier-eslint-cli": "^4.7.1",
-    "sass-loader": "^7.0.3",
     "styled-jsx-css-loader": "^0.3.0",
     "webpack-bundle-analyzer": "^2.13.1"
   }
