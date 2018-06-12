@@ -4,12 +4,15 @@ import withRedux from "next-redux-wrapper";
 import withReduxSaga from "next-redux-saga";
 import Head from "next/head";
 import PropTypes from "prop-types";
-
+import styled from "styled-components";
 import Store from "store";
 import { fetchPosts } from "store/posts/actions";
 import { Link } from "routes";
 import NProgress from "components/NProgress";
-import styles from "./index.scss";
+
+const H1 = styled.h1`
+  color: #458542;
+`;
 
 class PostsIndex extends Component {
   static getInitialProps({ store }) {
@@ -20,7 +23,6 @@ class PostsIndex extends Component {
     const { posts, fetchPostsAction } = this.props;
     return (
       <div>
-        <style jsx>{styles}</style>
         <Head>
           <title>Posts Index</title>
         </Head>
@@ -32,7 +34,7 @@ class PostsIndex extends Component {
         >
           Click Me
         </button>
-        <h1>Posts</h1>
+        <H1>Posts</H1>
         {posts.length > 0 &&
           posts.map(post => (
             <div key={post.id}>

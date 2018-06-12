@@ -1,4 +1,3 @@
-const path = require("path");
 const webpack = require("webpack");
 const { parsed: localEnv } = require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
@@ -23,49 +22,21 @@ module.exports = {
       })
     );
 
-    conf.module.rules.push(
-      {
-        test: /\.(sc|c)ss$/,
-        use: [
-          {
-            loader: "emit-file-loader",
-            options: {
-              name: "dist/[path][name].[ext].js"
-            }
-          },
-          {
-            loader: "babel-loader",
-            options: {
-              babelrc: false,
-              extends: path.resolve(__dirname, "./.babelrc")
-            }
-          },
-          "styled-jsx-css-loader",
-          { loader: "postcss-loader", options: { sourceMap: dev } },
-          {
-            loader: "sass-loader",
-            options: {
-              sourceMap: dev
-            }
+    conf.module.rules.push({
+      test: /\.(jpe?g|png|svg|gif)$/,
+      use: [
+        {
+          loader: "url-loader",
+          options: {
+            limit: 8192,
+            fallback: "file-loader",
+            publicPath: "/_next/",
+            outputPath: "static/images/",
+            name: "[name]-[hash].[ext]"
           }
-        ]
-      },
-      {
-        test: /\.(jpe?g|png|svg|gif)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8192,
-              fallback: "file-loader",
-              publicPath: "/_next/",
-              outputPath: "static/images/",
-              name: "[name]-[hash].[ext]"
-            }
-          }
-        ]
-      }
-    );
+        }
+      ]
+    });
 
     return conf;
   }
