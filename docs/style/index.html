@@ -58,7 +58,7 @@
                 <a class="nav-link" href="#styled-jsx">Styled JSX</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#external-styles">External styles</a>
+                <a class="nav-link" href="#external-styles">styled-components</a>
               </li>
             </ol>
           </li>
@@ -90,20 +90,34 @@
               </ul>
               For more information about how to use styled-jsx, please read the Readme on the <a href="https://github.com/zeit/styled-jsx" target="_blank">styled-jsx</a> repo.
             </p>
-            <h2 id="external-styles">External styles</h2>
+            <h2 id="external-styles">styled-components</h2>
             <p>
-              This boilerplate supports importing external css and scss files. Imported styles then converts to styled-jsx.
+              <a href="https://www.styled-components.com/" target="_blank">styled-components</a> allows you to write actual CSS code to style your components. It also removes the mapping between components and styles – using components as a low-level styling construct could not be easier!
 <pre class="rounded mt-3">
-<code class="js">  import styles from './styles.scss'
+<code class="js">  import React from 'react';
 
-  export default (props) => {
-    &lt;div&gt;
-      &lt;style jsx&gt;{styles}&lt;/style&gt;
-      &lt;div class="skyblue"&gt;
-        Blue is the warmest color!
-      &lt;/div&gt;
-    &lt;/div&gt;
-  }
+  import styled from 'styled-components';
+
+  // Create a &lt;Title&gt; react component that renders an &lt;h1&gt; which is
+  // centered, palevioletred and sized at 1.5em
+  const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: palevioletred;
+  `;
+
+  // Create a &lt;Wrapper&gt; react component that renders a &lt;section&gt; with
+  // some padding and a papayawhip background
+  const Wrapper = styled.section`
+    padding: 4em;
+    background: papayawhip;
+  `;
+
+  // Use them like any other React component – except they're styled!
+  &lt;Wrapper&gt;
+    &lt;Title&gt;Hello World!&lt;/Title&gt;
+  &lt;/Wrapper&gt;
+
 </code>
 </pre>
             </p>
@@ -111,7 +125,7 @@
           <div class="d-none d-xl-block col-xl-4">
             <ul class="section-nav ml-5">
               <li class="toc-entry"><a href="#styled-jsx">Styled JSX</a></li>
-              <li class="toc-entry"><a href="#external-styles">External styles</a></li>
+              <li class="toc-entry"><a href="#external-styles">styled-components</a></li>
             </ul>
           </div>
         </div>
