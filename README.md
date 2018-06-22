@@ -17,7 +17,7 @@ We had tough times working with Next to make it our beloved framework. We opened
 * **babel-plugin-module-resolver** for importing modules related to the root directory
 * **prettier** and **eslint** configured with **airbnb**'s styleguide for formating code
 * **husky** and **lint-staged** for autoformatting code before commit
-* **sass-loader** and **styled-jsx-css-loader** for importing css and scss as scoped styled-jsx
+* **styled-components** allows you to write actual CSS code to style your components.
 
 this boilerplate also includes **flow** and **storybook** that you can easily remove them if you don't like.
 
