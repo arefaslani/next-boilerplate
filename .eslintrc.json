@@ -21,6 +21,8 @@
             "components": ["Link"],
             "specialLink": ["route"],
             "aspects": ["invalidHref", "preferButton"]
-        }]
+        }],
+        "import/extensions": "off",
+        "import/no-unresolved": "off"
     }
 }
