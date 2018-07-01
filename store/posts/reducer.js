@@ -6,7 +6,7 @@ import {
 export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_POSTS_SUCCEEDED:
-      return action.payload;
+      return { ...state, list: action.payload };
     case FETCH_POST_SUCCEEDED:
       return { ...state, currentPost: action.payload };
     default:
